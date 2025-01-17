@@ -23,15 +23,13 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Grant execute permission for gradlew
-        run: chmod +x ./baekya/gradlew
+        run: chmod +x gradlew
 
       - name: Run build with Gradle Wrapper
         run: ./gradlew clean build
-        working-directory: ./baekya
 
       - name: Build the Docker image
         run: docker build . -t jnamu/baekya-server:$(date +%s) -t jnamu/baekya-server
-        working-directory: ./baekya
 
       # docker hub 로그인
       - name: Login docker hub

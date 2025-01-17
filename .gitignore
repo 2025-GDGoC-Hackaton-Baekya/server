@@ -43,6 +43,7 @@ out/
 application-*.yml
 application-*.properties
 !application.yml
+!application-test.yml
 !application.properties
 
 ### OS specific ###
