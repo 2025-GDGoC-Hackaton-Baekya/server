@@ -30,6 +30,7 @@ jobs:
 
       - name: Build the Docker image
         run: docker build . -t jnamu/baekya-server:$(date +%s) -t jnamu/baekya-server
+        working-directory: ./docker
 
       # docker hub 로그인
       - name: Login docker hub
