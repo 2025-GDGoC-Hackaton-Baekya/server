@@ -1,4 +1,4 @@
-package org.gdgoc.server.common.config;
+package org.gdgoc.server.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.servers.Server;
