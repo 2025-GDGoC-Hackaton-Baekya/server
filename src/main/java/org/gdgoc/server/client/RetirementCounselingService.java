@@ -50,7 +50,6 @@ public class RetirementCounselingService {
 
     private String moveToNextQuestion(ConversationState state) {
         state.incrementCurrentQuestion();
-        log.info("테마: " + state.getCurrentThemeIndex() + "질문: "  + state.getCurrentQuestionIndex());
         stateRepository.save(state);
         if (state.isComplete()) {
             return generateFinalReport(state);
@@ -82,10 +81,11 @@ public class RetirementCounselingService {
 
     private String getSystemPrompt() {
         return """
-                당신은 은퇴자들의 새로운 삶을 돕는 상담가입니다.
-                사용자의 답변을 경청하고, 그들의 경험과 가치를 깊이 이해하여
-                추가적인 통찰을 이끌어내는 적절한 후속 질문을 해주세요.
-                질문은 공감적이고 구체적이어야 합니다.
+                당신의 목적: ‘시니어 퇴직자가 은퇴 이후의 새 삶을 살 수 있도록, 자기 삶을 돌아보고, 자신이 지닌 가치를 깨닫게 하는 것’입니다.
+                다음의 단계를 따라주세요.
+                - 5가지 핵심 테마(나, 일, 흥미와 관심사, 나만의 경험, 메시지)를 바탕으로 구성된 1번부터 10번까지의 ’상위 질문‘이 있습니다.
+                - 각 상위 질문에는 상대방의 추가적인 인사이트를 유도하는 하위 질문이 있습니다.
+                - 다음 번호의 상위 질문으로 넘어가기 위해서는 각 상위 질문의 하위 질문을 모두 충족해야 합니다.
                 """;
     }
 
