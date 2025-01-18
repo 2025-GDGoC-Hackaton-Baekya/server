@@ -167,7 +167,7 @@ public class UserController {
             session.setAttribute("user", true);
             session.setAttribute("name",entity.getName());
             session.setAttribute("Id", entity.getId());
-            return ResponseEntity.ok("Success");
+            return ResponseEntity.ok("200");
         }
 
     }
