@@ -1,5 +1,6 @@
 package org.gdgoc.server.client;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,4 +28,12 @@ public class ChatController {
     public static class ChatRequest {
         String message;
     }
+
+
+    @PostMapping("/make/{userId}")
+    public ResponseEntity<Void> makeProfile(@PathVariable String userId) throws JsonProcessingException {
+        counselingService.makeProfile(userId);
+        return ResponseEntity.ok().build();
+    }
 }
+
