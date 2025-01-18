@@ -156,18 +156,17 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam String signid, @RequestParam String password,
-        HttpSession session){
-        User entity = userService.findByIdAndPw(signid,password);
+                                   HttpSession session) {
+        User entity = userService.findByIdAndPw(signid, password);
 
-        if(entity == null){
+        if (entity == null) {
             session.setAttribute("user", false);
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("failed");
-        }
-        else{
+        } else {
             session.setAttribute("user", true);
-            session.setAttribute("name",entity.getName());
+            session.setAttribute("name", entity.getName());
             session.setAttribute("Id", entity.getId());
-            return ResponseEntity.ok("200");
+            return ResponseEntity.ok(entity);
         }
 
     }
