@@ -11,5 +11,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
   // signid와 password를 기준으로 사용자 찾기
   Optional<User> findBySignidAndPassword(String signid, String password);
 
+  Optional<User> findBySignid(String signid);
+
+
 }
 

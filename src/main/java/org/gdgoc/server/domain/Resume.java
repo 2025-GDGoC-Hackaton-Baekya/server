@@ -29,9 +29,7 @@ public class Resume {
   private String skills;
   private String career;
   private String project;
-
   private String qualifications;
-
   private String coreCompetencies;
   private String additionalActivities;
 }

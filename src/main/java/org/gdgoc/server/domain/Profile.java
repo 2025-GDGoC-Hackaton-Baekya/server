@@ -20,17 +20,16 @@ public class Profile {
   private Long id;
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "user_id")
-  private User user;
+  @JoinColumn(name = "user_signid", referencedColumnName = "signid")
+  private User user; // User의 signid를 참조
 
-  private String Introduction;
-  private String education;
-  private String career;
-  private String projectExperience;
-  private String skills;
-  private String qualifications;
-  private String language;
-  private String coreCompetencies;
-  private String additionalActivities;
+
+  private String slogan;
+
+  private String aboutMe;
+  private String work;
+  private String interest;
+  private String experience;
+  private String message;
 }
 
